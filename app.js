@@ -3,7 +3,7 @@ var app = express();
 var http = require('http');
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname));
-http.createServer(app).listen(3000, function () {
+http.createServer(app).listen(process.env.PORT || 3000, function () {
   console.log('server running port 3000');
 });
 app.get('/', function (req, res) {
