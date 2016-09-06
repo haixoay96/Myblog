@@ -6,6 +6,10 @@
 <body>
     <% include ../navbar %>
     <% include ../main1 %>
+    <h2 class="container" style="color: #2f2f2f">Các bài viết.</h2>
+    <% list.forEach(function(row){ %>
+       <%- include('content', {title:row.title }); %>
+    <% }); %>
     <% include ../footer %>
 </body>
 </html>
