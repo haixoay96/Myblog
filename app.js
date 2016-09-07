@@ -23,6 +23,49 @@ app.get('/programming/:id', function (req,res) {
       nameTable ='java';
       param.name = 'Java';
       param.link = '/public/images/java.png';
+      param.language = 1;
+      break;
+    case '2':
+      nameTable = 'android';
+      param.name = 'Android';
+      param.link = '/public/images/android.jpg';
+      param.language = 2;
+      break;
+    case '3':
+      nameTable = 'nodejs';
+      param.name = 'NodeJs';
+      param.link = '/public/images/nodejs.jpg';
+      param.language = 3;
+      break;
+    case '4':
+      nameTable = 'c';
+      param.name = 'C/C++';
+      param.link = '/public/images/c.jpg';
+      param.language = 4;
+      break;
+    default:
+      res.redirect('/');
+      return;
+  }
+  var  db = new sqlite3.Database('./databases/dulieu.s3db');
+  db.all('SELECT title,_id FROM ' +nameTable , function (err, rows) {
+    param.list = rows;
+    res.render('programming/index',param);
+    console.log(param.list);
+  });
+
+});
+
+app.get('/programming/:idLanguage/:idPost', function (req,res) {
+  var idLanguage = req.params.idLanguage;
+  var idPost = req.params.idPost;
+  var nameTable;
+  var param = {};
+  switch (idLanguage){
+    case '1':
+      nameTable ='java';
+      param.name = 'Java';
+      param.link = '/public/images/java.png';
       break;
     case '2':
       nameTable = 'android';
@@ -44,25 +87,24 @@ app.get('/programming/:id', function (req,res) {
       return;
   }
   var  db = new sqlite3.Database('./databases/dulieu.s3db');
-  db.all('SELECT title,content FROM ' +nameTable , function (err, rows) {
-    param.list = rows;
-    res.render('programming/index',param);
-    console.log(param.list);
+  db.all('SELECT title,content FROM ' + nameTable+ ' WHERE _id = (?)',idPost , function (err, rows) {
+    console.log(idPost);
+    param.content = rows[0].content;
+    param.title = rows[0].title;
+    console.log(param.content);
+    res.render('programming/post',param);
   });
 
 });
 
-app.get('/programming/:idLanguage/:idPost', function (req,res) {
-  /// do something
-  res.render('programming/post');
-});
-
 
 /*
+var fs = require('fs');
+var x = fs.readFileSync('demo.txt', 'utf8');
+console.log(x);
 var  db = new sqlite3.Database('./databases/dulieu.s3db');
 db.all('SELECT title,content FROM nodejs', function (err, rows) {
 });
-db.all('INSERT INTO nodejs (title,content) VALUES (?,?);', 'Event Loop là gì ?', 'Linh');
+db.all('INSERT INTO nodejs (title,content) VALUES (?,?);', 'Callback là gì ?', x);
+
 */
-
-
