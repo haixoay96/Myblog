@@ -13,6 +13,17 @@ app.get('/', function (req, res) {
     link:'/public/images/avatar.jpg'
   });
 });
+app.get('/book', function (req,res) {
+  var nameTable = 'book';
+  var param = {};
+  param.name = 'Book';
+  param.link = '/public/images/book.png';
+  var  db = new sqlite3.Database('./databases/dulieu.s3db');
+  db.all('SELECT title,_id FROM ' +nameTable , function (err, rows) {
+    param.list = rows;
+    res.render('book/index',param);
+  });
+});
 app.get('/programming/:id', function (req,res) {
   var id = req.params.id;
   var nameTable;
@@ -51,7 +62,6 @@ app.get('/programming/:id', function (req,res) {
   db.all('SELECT title,_id FROM ' +nameTable , function (err, rows) {
     param.list = rows;
     res.render('programming/index',param);
-    console.log(param.list);
   });
 
 });
@@ -88,10 +98,8 @@ app.get('/programming/:idLanguage/:idPost', function (req,res) {
   }
   var  db = new sqlite3.Database('./databases/dulieu.s3db');
   db.all('SELECT title,content FROM ' + nameTable+ ' WHERE _id = (?)',idPost , function (err, rows) {
-    console.log(idPost);
     param.content = rows[0].content;
     param.title = rows[0].title;
-    console.log(param.content);
     res.render('programming/post',param);
   });
 
