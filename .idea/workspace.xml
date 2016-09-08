@@ -2,135 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1bc094c8-4e93-47b2-823f-ddb3a397ab48" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/demo.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/qs/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/qs/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/qs/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/qs/bower.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/HISTORY.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/.bin/mime" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/.bin/mime.cmd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/destroy/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/destroy/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/destroy/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/destroy/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/http-errors/HISTORY.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/http-errors/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/http-errors/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/http-errors/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/http-errors/node_modules/inherits/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/http-errors/node_modules/inherits/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/http-errors/node_modules/inherits/inherits.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/http-errors/node_modules/inherits/inherits_browser.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/http-errors/node_modules/inherits/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/http-errors/node_modules/inherits/test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/http-errors/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/mime/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/mime/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/mime/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/mime/build/build.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/mime/build/test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/mime/cli.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/mime/mime.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/mime/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/mime/types.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/ms/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/ms/History.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/ms/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/ms/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/ms/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/ms/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/statuses/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/statuses/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/statuses/codes.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/statuses/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/node_modules/statuses/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/node_modules/send/package.json" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/databases/dulieu.s3db" afterPath="$PROJECT_DIR$/databases/dulieu.s3db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ejs/test/ejs.js" afterPath="$PROJECT_DIR$/node_modules/ejs/test/ejs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/HISTORY.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/HISTORY.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/node_modules/mime-types/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/node_modules/mime-types/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/node_modules/negotiator/HISTORY.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/node_modules/negotiator/HISTORY.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/node_modules/negotiator/README.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/node_modules/negotiator/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/node_modules/negotiator/index.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/node_modules/negotiator/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/node_modules/negotiator/lib/charset.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/node_modules/negotiator/lib/charset.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/node_modules/negotiator/lib/encoding.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/node_modules/negotiator/lib/encoding.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/node_modules/negotiator/lib/language.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/node_modules/negotiator/lib/language.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/node_modules/negotiator/lib/mediaType.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/node_modules/negotiator/lib/mediaType.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/node_modules/negotiator/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/node_modules/negotiator/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/accepts/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/content-type/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/content-type/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/cookie/HISTORY.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/cookie/HISTORY.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/cookie/LICENSE" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/cookie/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/cookie/README.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/cookie/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/cookie/index.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/cookie/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/cookie/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/cookie/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/finalhandler/HISTORY.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/finalhandler/HISTORY.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/finalhandler/README.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/finalhandler/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/finalhandler/index.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/finalhandler/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/finalhandler/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/finalhandler/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/HISTORY.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/HISTORY.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/LICENSE" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/README.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/index.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/node_modules/ipaddr.js/README.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/node_modules/ipaddr.js/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/node_modules/ipaddr.js/bower.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/node_modules/ipaddr.js/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/node_modules/ipaddr.js/ipaddr.min.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/node_modules/ipaddr.js/ipaddr.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/node_modules/ipaddr.js/lib/ipaddr.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/node_modules/ipaddr.js/lib/ipaddr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/node_modules/ipaddr.js/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/node_modules/ipaddr.js/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/node_modules/ipaddr.js/src/ipaddr.coffee" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/node_modules/ipaddr.js/src/ipaddr.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/node_modules/ipaddr.js/test/ipaddr.test.coffee" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/node_modules/ipaddr.js/test/ipaddr.test.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/proxy-addr/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/qs/CHANGELOG.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/qs/CHANGELOG.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/qs/lib/index.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/qs/lib/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/qs/lib/parse.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/qs/lib/parse.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/qs/lib/stringify.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/qs/lib/stringify.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/qs/lib/utils.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/qs/lib/utils.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/qs/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/qs/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/qs/test/parse.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/qs/test/parse.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/qs/test/stringify.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/qs/test/stringify.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/qs/test/utils.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/qs/test/utils.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/range-parser/HISTORY.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/range-parser/HISTORY.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/range-parser/LICENSE" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/range-parser/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/range-parser/README.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/range-parser/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/range-parser/index.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/range-parser/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/range-parser/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/range-parser/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/send/HISTORY.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/send/HISTORY.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/send/LICENSE" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/send/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/send/README.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/send/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/send/index.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/send/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/http-errors/HISTORY.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/http-errors/HISTORY.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/http-errors/LICENSE" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/http-errors/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/http-errors/README.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/http-errors/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/http-errors/index.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/http-errors/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/http-errors/node_modules/inherits/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/http-errors/node_modules/inherits/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/http-errors/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/http-errors/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/ms/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/ms/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/statuses/LICENSE" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/statuses/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/statuses/README.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/statuses/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/statuses/codes.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/statuses/codes.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/statuses/index.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/statuses/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/statuses/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/send/node_modules/statuses/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/send/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/send/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/HISTORY.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/HISTORY.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/LICENSE" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/README.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/index.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/serve-static/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/type-is/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/type-is/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/vary/HISTORY.md" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/vary/HISTORY.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/vary/index.js" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/vary/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/express/node_modules/vary/package.json" afterPath="$PROJECT_DIR$/node_modules/express/node_modules/vary/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/footer.ejs" afterPath="$PROJECT_DIR$/views/footer.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/programming/content.ejs" afterPath="$PROJECT_DIR$/views/programming/content.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/programming/index.ejs" afterPath="$PROJECT_DIR$/views/programming/index.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/programming/post.ejs" afterPath="$PROJECT_DIR$/views/programming/post.ejs" />
     </list>
     <ignored path="Myblog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -163,8 +36,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="617">
-              <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+            <state relative-caret-position="263">
+              <caret line="106" column="2" selection-start-line="100" selection-start-column="2" selection-end-line="106" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -825,16 +698,16 @@
       <workItem from="1473153414126" duration="3687000" />
       <workItem from="1473180861012" duration="2438000" />
       <workItem from="1473229884474" duration="8451000" />
-      <workItem from="1473247380252" duration="4283000" />
+      <workItem from="1473247380252" duration="6404000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50561000" />
+    <option name="totallyTimeSpent" value="52682000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -845,7 +718,7 @@
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26409018" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3478261" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45341614" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20058565" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1304,8 +1177,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="617">
-          <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+        <state relative-caret-position="263">
+          <caret line="106" column="2" selection-start-line="100" selection-start-column="2" selection-end-line="106" selection-end-column="2" />
           <folding />
         </state>
       </provider>
