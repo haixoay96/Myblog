@@ -27,22 +27,22 @@ fisrt
         <p style="color: #2f2f2f">
             Giả sử là mình có file data.txt trong cùng thư mục với file code nhé và trong file data.txt chứa nội dung là hello world.<br>
             Chúng ta thấy là theo logic thì nó phải in ra:<br>
-            first<br>
             hello world<br>
+            first<br>
             Đúng không ? Nhưng nó lại in ra:<br>
-            hello world<br>
             first<br>
+            hello world<br>
             Đấy Nonblocking bắt đầu xuất hiện ở đây, cụ thể là cái hàm fs.readFile là một hàm được thiết kế theo cơ chế nonblocking. Chúng ta có thể hiểu là hàm fs.readFile sẽ ra lệch cho máy tính là đọc file data.txt đi, khi nào đọc xong thì báo cho tao , giờ tao phải đi làm việc khác đã :))<br>
             Và trong khi hàm fs.readFile nó đọc chuỗi hello world trong file thì chương trình tiếp tục in ra chữ first cho đến khi fs.readFile đọc xong thì nó sẽ in ra chuỗi hello world.<br>
             Chúng ta có thể thấy cái hàm mà chúng ta truyền vào hàm fs.readFile chính là hàm callback mà hôm trước chúng ta đã bàn luận.<br>
             Ơ thế nó dễ như vậy thôi à ? .......<br>
-            Nhưng từ từ đã có một CHÚ Ý !!! cực kỳ quan trọng ở đây là, cái việc khác mà chúng ta làm ấy , các việc mà chúng ta làm trong khi hàm fs.readFile đọc xong file data.txt. Nếu như công việc đó chưa hoàn thành thì kể cả fs.readFile có đọc xong file data.txt thì nó cũng không bao giờ in ra được chữ hello world. Tức là các công việc in chữ first phải xong rồi thì nó mới in ra được chữ hello world.<br>
+            Nhưng từ từ đã có một CHÚ Ý !!! cực kỳ quan trọng ở đây là, cái việc khác mà chúng ta làm ấy , các việc mà chúng ta làm trong khi hàm fs.readFile đọc xong file data.txt. Nếu như công việc đó chưa hoàn thành thì file sẽ chẳng bao giờ được đọc . Tức là các công việc in chữ first phải xong rồi thì nó mới bắt đầu đọc file rồi in ra  hello world.<br>
             Tại sao lại như vậy nhỉ ? Tại vì nodejs là single thread  tức nó vẫn sẽ thực hiện tuần tự lần lượt từng lệch, không thể 1 lúc thực thi 2 lệch như đa luồng được :(( <br>
             Đến đây dẫn đến khái niệm Event loop ( vòng lặp sự kiên ) và Queue event ( hàng đợi sự kiên).<br>
             Chúng ta cần phải phân tích lại cơ chế hoạt động của đoạn code trên như sau. <br>
             Cái hàm callback mà chúng ta truyền vào hàm fs.readFile để in ra chữ hello world khi hàm fs.readFile đọc xong file, sẽ được Event loop liên tục kiểm tra xem khi nào hàm fs.readFile đọc xong file, khi đọc xong thì nó sẽ thông báo cho Queue event để đưa hàm callback đó vào Queue event , được đưa vào Queue event chứ không phải được thực thi nhé! <br>
             Và trong Queue event khi nào câu lệch đứng trước hàm callback được thực hiện thì nó mới được thực hiện.<br>
-            Chạy file chương trình --> in ra first -- > khi nào đọc xong file in ra hello world.<br>
+            Chạy file chương trình -->thông báo khi nào cho Event loop khi nào file đọc xong thì cho callback vào Queue event--> in ra first -- >đọc file --> đọc xong cho callback vào Queue event --> in thông tin file.<br>
             Chúng ta tham khảo đoạn code dưới đây để có thể hiểu hơn về Nonblocking , Event loop , Queue event.<br>
         </p>
         <pre style='color:#d1d1d1;background:#000000;'><span style='color:#e66170; font-weight:bold; '>var</span> fs <span style='color:#d2cd86; '>=</span> require<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>fs</span><span style='color:#02d045; '>'</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
@@ -52,7 +52,7 @@ fs<span style='color:#d2cd86; '>.</span>readFile<span style='color:#d2cd86; '>(<
 <span style='color:#e66170; font-weight:bold; '>while</span><span style='color:#d2cd86; '>(</span><span style='color:#0f4d75; '>true</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>{</span>
 
 <span style='color:#b060b0; '>}</span>
-<span style='color:#9999a9; '>// đoạn code trên vĩnh viễn không bao giờ in ra được chữ hello world mặc dù nó đã đọc xong file rồi</span>
+<span style='color:#9999a9; '>// đoạn code trên vĩnh viễn không bao giờ in ra được chữ hello world vì trong Queue event vòng lặp while chưa được thực hiện xong</span>
 </pre>
         <p style="color:#2f2f2f;">
             Hay đoạn code này !
