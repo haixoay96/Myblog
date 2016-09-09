@@ -124,13 +124,11 @@ db.all('INSERT INTO nodejs (title,content) VALUES (?,?);', 'Cơ chế hoạt đ�
 
 */
 
- var fs = require('fs');
- var x = fs.readFileSync('demo.txt', 'utf8');
- console.log(x);
- var  db = new sqlite3.Database('./databases/dulieu.s3db');
- /*db.all('SELECT title,content FROM nodejs', function (err, rows) {
- });*/
- db.all('UPDATE nodejs SET content = (?) WHERE _id =(?);',x,2);
+/*var fs = require('fs');
+var x =  fs.readFileSync('demo.txt', 'utf8');
+console.log(x);
+var  db = new sqlite3.Database('./databases/dulieu.s3db');
+db.all('UPDATE nodejs SET content = (?) WHERE _id =(?);',x,2);*/
 
 
 
