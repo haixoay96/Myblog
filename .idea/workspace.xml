@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1bc094c8-4e93-47b2-823f-ddb3a397ab48" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/databases/dulieu.s3db" afterPath="$PROJECT_DIR$/databases/dulieu.s3db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo.txt" afterPath="$PROJECT_DIR$/demo.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/demo.html" afterPath="$PROJECT_DIR$/public/demo.html" />
     </list>
     <ignored path="Myblog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,7 +32,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="262">
@@ -45,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="demo.txt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="demo.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/demo.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="83" column="6" selection-start-line="83" selection-start-column="6" selection-end-line="83" selection-end-column="6" />
+            <state relative-caret-position="204">
+              <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -895,12 +892,12 @@
       <workItem from="1473399387059" duration="588000" />
       <workItem from="1473402429898" duration="2070000" />
       <workItem from="1473407283223" duration="8113000" />
-      <workItem from="1473431129057" duration="1972000" />
+      <workItem from="1473431129057" duration="2154000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78472000" />
+    <option name="totallyTimeSpent" value="78654000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1465,18 +1462,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="83" column="6" selection-start-line="83" selection-start-column="6" selection-end-line="83" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
           <caret line="132" column="30" selection-start-line="132" selection-start-column="30" selection-end-line="132" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
           <folding />
         </state>
       </provider>
