@@ -97,42 +97,84 @@
 <div class="container">
     <div class="jumbotron">
         <p style="color: #2f2f2f">
-            Trong lập trình javascript nói chúng và nodejs nói riêng thì callback là một khái niệm rất quan trọng.<br>
-            Vậy nó là gì thì hôm nay chúng ta bắt đầu tìm hiểu.<br>
-            Đầu tiên chúng ta cần phải biết rằng function trong javascript cũng có thể được lưu trữ vào một biến, mà đã
-            được lưu được vào trong biến thì đương nhiên sẽ truyền được vào trong hàm.<br>
-            Chúng ta cùng xem đoạn code sau:<br>
+            Chào các bạn hôm nay mình sẽ giải thích cho các bạn về cơ chế Nonblocking, Event loop và Queue event trong nodejs. <br>
+            Đầu tiên chúng ta cần phải biết là nodejs chạy single thread ( đơn luồng ) tức là chỉ có một luồng duy nhất, mọi đoạn mã code chỉ được thực thi bởi một luồng <br>
+            Chúng ta cùng xem đoạn code sau:
         </p>
-        <pre style='color:#d1d1d1;background:#000000;'><span style='color:#e66170; font-weight:bold; '>function</span> printfName<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span> <span style='color:#b060b0; '>{</span>
-        console<span style='color:#d2cd86; '>.</span><span style='color:#e66170; font-weight:bold; '>log</span><span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>hello world</span><span style='color:#02d045; '>'</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-<span style='color:#b060b0; '>}</span><span style='color:#b060b0; '>;</span>
-
-<span style='color:#e66170; font-weight:bold; '>function</span> printf <span style='color:#d2cd86; '>(</span>call<span style='color:#d2cd86; '>)</span> <span style='color:#b060b0; '>{</span>
-    call<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-<span style='color:#b060b0; '>}</span><span style='color:#b060b0; '>;</span>
-
-printf<span style='color:#d2cd86; '>(</span>printfName<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-<span style='color:#9999a9; '>// nó sẽ in ra hello world;</span>
+        <pre style='color:#d1d1d1;background:#000000;'>console<span style='color:#d2cd86; '>.</span><span style='color:#e66170; font-weight:bold; '>log</span><span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>hello world</span><span style='color:#02d045; '>'</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+console<span style='color:#d2cd86; '>.</span><span style='color:#e66170; font-weight:bold; '>log</span><span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>next</span><span style='color:#02d045; '>'</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+<span style='color:#9999a9; '>// nó sẽ in ra</span>
+hello world
+next
 </pre>
         <p style="color: #2f2f2f">
-            Chúng ta có thể hiểu rằng khi chúng ta gọi hàm printf và truyền vào tham số là printfName thì dữ liệu của hàm printfName sẽ được lưu vào biến cục bộ call và ở trong hàm printf để gọi hàm được truyền vào thì ta sử dụng cú pháp call().<br>
-            Tóm lại cách chúng ta truyền hàm printfName vào trong hàm printf và sử dụng nó bằng cách gọi call() thì người ta gọi đó là hàm callback.<br>
-            ==>Callback tức là ta truyền 1 hàm vào trong 1 hàm khác rồi sử dụng hàm đó.<br>
-            Còn đây là đoạn code ví dụ cách truyền tham số vào hàm callback!!<br>
+            Đoạn code trên được thực thi từ trên xuống dưới ( hihi ai cũng biết ).<br>
+            Giờ chúng ta xem đoạn code sau:<br>
         </p>
-        <pre style='color:#d1d1d1;background:#000000;'><span style='color:#e66170; font-weight:bold; '>function</span> printf<span style='color:#d2cd86; '>(</span>name<span style='color:#d2cd86; '>)</span> <span style='color:#b060b0; '>{</span>
-    console<span style='color:#d2cd86; '>.</span><span style='color:#e66170; font-weight:bold; '>log</span><span style='color:#d2cd86; '>(</span>name<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-<span style='color:#b060b0; '>}</span><span style='color:#b060b0; '>;</span>
-<span style='color:#e66170; font-weight:bold; '>function</span> printfName<span style='color:#d2cd86; '>(</span>call<span style='color:#d2cd86; '>,</span> name<span style='color:#d2cd86; '>)</span> <span style='color:#b060b0; '>{</span>
-    call<span style='color:#d2cd86; '>(</span>name<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-<span style='color:#b060b0; '>}</span><span style='color:#b060b0; '>;</span>
-
-printfName<span style='color:#d2cd86; '>(</span>call<span style='color:#d2cd86; '>,</span> <span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>Tôi là tôi!</span><span style='color:#02d045; '>'</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-<span style='color:#9999a9; '>// nó sẽ in ra Tôi là tôi!</span>
+        <pre style='color:#d1d1d1;background:#000000;'><span style='color:#e66170; font-weight:bold; '>var</span> fs <span style='color:#d2cd86; '>=</span> require<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>fs</span><span style='color:#02d045; '>'</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+fs<span style='color:#d2cd86; '>.</span>readFile<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>data.txt</span><span style='color:#02d045; '>'</span><span style='color:#d2cd86; '>,</span> <span style='color:#e66170; font-weight:bold; '>function</span> <span style='color:#d2cd86; '>(</span>err<span style='color:#d2cd86; '>,</span> data<span style='color:#d2cd86; '>)</span> <span style='color:#b060b0; '>{</span>
+  console<span style='color:#d2cd86; '>.</span><span style='color:#e66170; font-weight:bold; '>log</span><span style='color:#d2cd86; '>(</span>data<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+<span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+console<span style='color:#d2cd86; '>.</span><span style='color:#e66170; font-weight:bold; '>log</span><span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>first</span><span style='color:#02d045; '>'</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+<span style='color:#9999a9; '>// nó sẽ in ra là </span>
+hello world
+fisrt
 </pre>
         <p style="color: #2f2f2f">
-            Callback đơn giản phải không các bạn? Hi vọng bài viết giúp cho các bạn hiểm thêm về callback trong nodejs<br>
-            Cảm ơn các bạn đã theo dõi bài viết!
+            Giả sử là mình có file data.txt trong cùng thư mục với file code nhé và trong file data.txt chứa nội dung là hello world.<br>
+            Chúng ta thấy là theo logic thì nó phải in ra:<br>
+            first<br>
+            hello world<br>
+            Đúng không ? Nhưng nó lại in ra:<br>
+            hello world<br>
+            first<br>
+            Đấy Nonblocking bắt đầu xuất hiện ở đây, cụ thể là cái hàm fs.readFile là một hàm được thiết kế theo cơ chế nonblocking. Chúng ta có thể hiểu là hàm fs.readFile sẽ ra lệch cho máy tính là đọc file data.txt đi, khi nào đọc xong thì báo cho tao , giờ tao phải đi làm việc khác đã :))<br>
+            Và trong khi hàm fs.readFile nó đọc chuỗi hello world trong file thì chương trình tiếp tục in ra chữ first cho đến khi fs.readFile đọc xong thì nó sẽ in ra chuỗi hello world.<br>
+            Chúng ta có thể thấy cái hàm mà chúng ta truyền vào hàm fs.readFile chính là hàm callback mà hôm trước chúng ta đã bàn luận.<br>
+            Ơ thế nó dễ như vậy thôi à ? .......<br>
+            Nhưng từ từ đã có một CHÚ Ý !!! cực kỳ quan trọng ở đây là, cái việc khác mà chúng ta làm ấy , các việc mà chúng ta làm trong khi hàm fs.readFile đọc xong file data.txt. Nếu như công việc đó chưa hoàn thành thì kể cả fs.readFile có đọc xong file data.txt thì nó cũng không bao giờ in ra được chữ hello world. Tức là các công việc in chữ first phải xong rồi thì nó mới in ra được chữ hello world.<br>
+            Tại sao lại như vậy nhỉ ? Tại vì nodejs là single thread  tức nó vẫn sẽ thực hiện tuần tự lần lượt từng lệch, không thể 1 lúc thực thi 2 lệch như đa luồng được :(( <br>
+            Đến đây dẫn đến khái niệm Event loop ( vòng lặp sự kiên ) và Queue event ( hàng đợi sự kiên).<br>
+            Chúng ta cần phải phân tích lại cơ chế hoạt động của đoạn code trên như sau. <br>
+            Cái hàm callback mà chúng ta truyền vào hàm fs.readFile để in ra chữ hello world khi hàm fs.readFile đọc xong file, sẽ được Event loop liên tục kiểm tra xem khi nào hàm fs.readFile đọc xong file, khi đọc xong thì nó sẽ thông báo cho Queue event để đưa hàm callback đó vào Queue event , được đưa vào Queue event chứ không phải được thực thi nhé! <br>
+            Và trong Queue event khi nào câu lệch đứng trước hàm callback được thực hiện thì nó mới được thực hiện.<br>
+            Chạy file chương trình --> in ra first -- > khi nào đọc xong file in ra hello world.<br>
+            Chúng ta tham khảo đoạn code dưới đây để có thể hiểu hơn về Nonblocking , Event loop , Queue event.<br>
+        </p>
+        <pre style='color:#d1d1d1;background:#000000;'><span style='color:#e66170; font-weight:bold; '>var</span> fs <span style='color:#d2cd86; '>=</span> require<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>fs</span><span style='color:#02d045; '>'</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+fs<span style='color:#d2cd86; '>.</span>readFile<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>data.txt</span><span style='color:#02d045; '>'</span><span style='color:#d2cd86; '>,</span> <span style='color:#e66170; font-weight:bold; '>function</span> <span style='color:#d2cd86; '>(</span>err<span style='color:#d2cd86; '>,</span> data<span style='color:#d2cd86; '>)</span> <span style='color:#b060b0; '>{</span>
+  console<span style='color:#d2cd86; '>.</span><span style='color:#e66170; font-weight:bold; '>log</span><span style='color:#d2cd86; '>(</span>data<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+<span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+<span style='color:#e66170; font-weight:bold; '>while</span><span style='color:#d2cd86; '>(</span><span style='color:#0f4d75; '>true</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>{</span>
+
+<span style='color:#b060b0; '>}</span>
+<span style='color:#9999a9; '>// đoạn code trên vĩnh viễn không bao giờ in ra được chữ hello world mặc dù nó đã đọc xong file rồi</span>
+</pre>
+        <p style="color:#2f2f2f;">
+            Hay đoạn code này !
+        </p>
+        <pre style='color:#d1d1d1;background:#000000;'><span style='color:#9999a9; '>// utility funcion</span>
+<span style='color:#e66170; font-weight:bold; '>function</span> fibonacci<span style='color:#d2cd86; '>(</span>n<span style='color:#d2cd86; '>)</span> <span style='color:#b060b0; '>{</span>
+<span style='color:#e66170; font-weight:bold; '>if</span> <span style='color:#d2cd86; '>(</span>n <span style='color:#d2cd86; '>&lt;</span> <span style='color:#008c00; '>2</span><span style='color:#d2cd86; '>)</span>
+<span style='color:#e66170; font-weight:bold; '>return</span> <span style='color:#008c00; '>1</span><span style='color:#b060b0; '>;</span>
+<span style='color:#e66170; font-weight:bold; '>else</span>
+<span style='color:#e66170; font-weight:bold; '>return</span> fibonacci<span style='color:#d2cd86; '>(</span>n <span style='color:#d2cd86; '>-</span> <span style='color:#008c00; '>2</span><span style='color:#d2cd86; '>)</span> <span style='color:#d2cd86; '>+</span> fibonacci<span style='color:#d2cd86; '>(</span>n <span style='color:#d2cd86; '>-</span> <span style='color:#008c00; '>1</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+<span style='color:#b060b0; '>}</span>
+<span style='color:#9999a9; '>// đánh dấu thời gian bắt đầu</span>
+console<span style='color:#d2cd86; '>.</span>time<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>timer</span><span style='color:#02d045; '>'</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+<span style='color:#e66170; font-weight:bold; '>setTimeout</span><span style='color:#d2cd86; '>(</span><span style='color:#e66170; font-weight:bold; '>function</span> <span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span> <span style='color:#b060b0; '>{</span>
+console<span style='color:#d2cd86; '>.</span>timeEnd<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>timer</span><span style='color:#02d045; '>'</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span> <span style='color:#9999a9; '>//in ra thời gian khi nó được gọi</span>
+<span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>,</span> <span style='color:#008c00; '>1000</span><span style='color:#d2cd86; '>)</span>
+fibonacci<span style='color:#d2cd86; '>(</span><span style='color:#008c00; '>44</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+</pre>
+        <p style="color: #2f2f2f">
+            Hàm callback trong hàm setTimeout sẽ được đưa vào event loop sau 1 giây. <br>
+            Khi bạn chạy đoạn code trên chúng ta thấy ra nó sẽ in ra kết quả lớn hơn 1 giây<br>
+            Tại vì sau 1 giây nó mới chỉ được đưa vào event loop thôi chứ chưa được thực thi , nó phải đợi khi nào hàm fibonacci thực thi xong đã bởi hàm fibonacci được đưa vào Queue event trước ! <br>
+            Hàm fibonacci được đưa vào Queue event ngay sau khi hàm setTimeout được thực thi còn hàm callback thì sau một giây sau mới được đưa vào Queue event.<br>
+            Còn cơ chế hoạt động của hàng đợi thì chắc ai cũng biết rồi nhỉ ? , first in first out. <br>
+            Hi vọng bài viết có thể giúp bạn hiểu thêm về nodejs.<br>
+            Cảm ơn các bạn đã theo dõi bài viết !
         </p>
     </div>
 </div>

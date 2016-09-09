@@ -98,11 +98,17 @@ app.get('/programming/:idLanguage/:idPost', function (req,res) {
   }
   var  db = new sqlite3.Database('./databases/dulieu.s3db');
   db.all('SELECT title,content FROM ' + nameTable+ ' WHERE _id = (?)',idPost , function (err, rows) {
+    if(rows.length === 0 ){
+      res.redirect('/');
+      return;
+    }
     param.content = rows[0].content;
     param.title = rows[0].title;
     res.render('programming/post',param);
   });
-
+});
+app.use(function (req,res) {
+  res.redirect('/');
 });
 
 
@@ -113,6 +119,8 @@ console.log(x);
 var  db = new sqlite3.Database('./databases/dulieu.s3db');
 db.all('SELECT title,content FROM nodejs', function (err, rows) {
 });
-db.all('INSERT INTO nodejs (title,content) VALUES (?,?);', 'Callback là gì ?', x);
+db.all('INSERT INTO nodejs (title,content) VALUES (?,?);', 'Cơ chế hoạt động của Nonblocking, Event loop, Queue event !', x);
+
 
 */
+
