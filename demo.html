@@ -1,8 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sau="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Blog developer !</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="shortcut icon" type="image/PNG" href="/public/images/icon.png"/>
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font: 20px Montserrat, sans-serif;
+            line-height: 1.8;
+            color: #f5f6f7;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        .margin {
+            margin-bottom: 45px;
+        }
+
+        .bg-1 {
+            background-color: #1abc9c; /* Green */
+            color: #ffffff;
+        }
+
+        .bg-2 {
+            background-color: #474e5d; /* Dark Blue */
+            color: #ffffff;
+        }
+
+        .bg-3 {
+            background-color: #ffffff; /* White */
+            color: #555555;
+        }
+
+        .bg-4 {
+            background-color: #2f2f2f; /* Black Gray */
+            color: #fff;
+        }
+
+        .container-fluid {
+            padding-top: 70px;
+            padding-bottom: 70px;
+        }
+
+        .navbar {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border: 0;
+            border-radius: 0;
+            margin-bottom: 0;
+            font-size: 12px;
+            letter-spacing: 5px;
+        }
+
+        .navbar-nav li a:hover {
+            color: #1abc9c !important;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Home</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Who?</a></li>
+                <li><a href="#">What?</a></li>
+                <li><a href="#">How?</a></li>
+                <li><a href="#">Book</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Programming<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/programming/1">Java</a></li>
+                        <li><a href="/programming/2">Android</a></li>
+                        <li><a href="/programming/3">Nodejs</a></li>
+                        <li><a href="/programming/4">C/C++</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 <div class="container">
     <div class="jumbotron">
         <p style="color: #2f2f2f">
             Hey guys !. I come back! <br>
-            Dạo tiếng anh tý thôi. Hôm nay mình sẽ hướng dẫn cách bạn tạo 1 http server đơn giản!<br>
+            Dạo tiếng anh tý thôi. Hôm nay mình sẽ hướng dẫn cách bạn tạo 1 http server đơn giản nhé !<br>
             Đầu tiên mình sẽ hướng dẫn các bạn cách tạo 1 project đã!<br>
             Các bạn vào trang chủ rồi dow bộ cài về nhé , cứ next next là xong , easy @@,<a href="https://nodejs.org/en/">link đây</a><br>
             Lưu ý là các bạn nên dow bản 4. nhé, vì nó là bản ổn định.<br>
@@ -15,7 +111,7 @@
 </pre>
         <p style="color: #2f2f2f">
             Nó sẽ khởi tạo project của bạn với tham số mặc định và xuất hiện 1 file package.json trong thư mục project .File đó các bạn chưa cần quan tâm nhé mình sẽ giải thích sau và từ khóa npm cũng vậy mình sẽ giải thích sau. <br>
-            Nói thêm nữa là code nodejs thì ko cần ide vì code của javascript không phực tạp như java hay C#, chỉ sau này khi làm cả một trang web thì chúng ta dùng webstorm, trước mắt thì nên dùng sublime text hoặc atom cho nó ... đẳng cấp @#$@#$ , các bạn có thể dow trên mạng. <br>
+            Nói thêm nữa là code nodejs thì ko cần ide vì code của javascript không phực tạp như java hay C#, chỉ sau này khi làm cả một trang web thì chúng ta dùng webstorm, trước mắt thì nên dùng sublime text hoặc atom cho nó ... đẳng cấp @#$@#$ , các bạn có thể dow trên mạng <br>
             Trong thưc mục project chúng ta tạo file index.js.<br>
             Trong file index.js chúng ta có đoạn code sau:<br>
         </p>
@@ -52,3 +148,6 @@ console<span style='color:#d2cd86; '>.</span><span style='color:#e66170; font-we
         </p>
     </div>
 </div>
+
+</body>
+</html>
