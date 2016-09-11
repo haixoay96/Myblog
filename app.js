@@ -130,7 +130,7 @@ var x =  fs.readFileSync('demo.txt', 'utf8');
 console.log(x);
 var  db = new sqlite3.Database('./databases/dulieu.s3db');
 db.all('UPDATE nodejs SET content = (?) WHERE _id =(?);',x,3);
-
 */
+
 
 

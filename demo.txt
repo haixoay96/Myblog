@@ -37,6 +37,8 @@ console<span style='color:#d2cd86; '>.</span><span style='color:#e66170; font-we
             Đoạn này hiểu đơn giản là chúng ta trả về cho client chuỗi hello client!<br>
             response.end();<br>
             Còn đoạn này là thông báo kết thúc gói tin trả về( nếu không có dòng này thì client sẽ không nhận được dữ liệu trả về đâu hô hô !<br>
+            server.listen(3000).<br>
+            Server của chúng ta sẽ lắng nghe yêu cầu ở port 3000. <br>
             Rồi bắt đầu chạy !
             Vào cmd cd đến thưc mục project rồi gõ:
         </p>
