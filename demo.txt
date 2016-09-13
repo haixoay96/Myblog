@@ -29,6 +29,7 @@ console<span style='color:#d2cd86; '>.</span><span style='color:#e66170; font-we
             res.writeHead(200, { 'content-type': 'text/html' });<br>
             Đoạn code này dùng để set header cho gói tin, thông báo là chúng ta trả về file html.<br>
             Rồi chúng ta dùng module fs để trả truyền file về cho client.<br>
+            Chạy server ( cách chạy mình có hướng dẫn ở bài trước ) <br>
             Vào trình duyệt và gõ http://127.0.0.1:3000 nó sẽ hiện thị nội dung của file html nên cho chúng ta.<br>
             Đấy là cách chúng ta trả về file html còn đây là bảng tên content-type của một vài kiểu dữ liệu cơ bản, các bạn chỉ cần chỉnh phương thức writeHead và truyền vào file muốn trả về là được.<br>
         </p>
