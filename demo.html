@@ -97,57 +97,50 @@
 <div class="container">
     <div class="jumbotron">
         <p style="color: #2f2f2f">
-            Hey guys !. I come back! <br>
-            Dạo tiếng anh tý thôi. Hôm nay mình sẽ hướng dẫn cách bạn tạo 1 http server đơn giản nhé !<br>
-            Đầu tiên mình sẽ hướng dẫn các bạn cách tạo 1 project đã!<br>
-            Các bạn vào trang chủ rồi dow bộ cài về nhé , cứ next next là xong , easy @@,<a href="https://nodejs.org/en/">link đây</a><br>
-            Lưu ý là các bạn nên dow bản 4. nhé, vì nó là bản ổn định.<br>
-            Rồi giờ chúng ta khỏi tạo project.<br>
-            Các bạn mở cửa số cmd rồi gỗ lệnh.<br>
+            Chào các bạn ! Hôm nay mình sẽ hướng dẫn các bạn tạo 1 server phục vụ trả về file cho client.<br>
+            Đầu tiên chúng ta tạo 1 file html đơn giản nhé và cho nó vào thư mục của project ( cách tạo project mình hướng dẫn ở bài trước rồi mình không làm lại nữa ). <br>
         </p>
-        <pre style='color:#d1d1d1;background:#000000;'><span style='color:#005fd2; '>mkdir</span> <span style='color:#00c4c4; '>project</span>
-<span style='color:#005fd2; '>cd</span> <span style='color:#00c4c4; '>project</span>
-<span style='color:#005fd2; '>npm</span> <span style='color:#00c4c4; '>init</span> <span style='color:#00c4c4; '>--yes</span>
+        <pre style='color:#d1d1d1;background:#000000;'><span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>html</span><span style='color:#ff8906; '>></span>
+<span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>head</span><span style='color:#ff8906; '>></span>
+<span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>title</span><span style='color:#ff8906; '>></span>Hello everyone<span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>title</span><span style='color:#ff8906; '>></span>
+<span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>head</span><span style='color:#ff8906; '>></span>
+<span style='color:#ff8906; '>&lt;</span><span style='color:#e66170; font-weight:bold; '>body</span><span style='color:#ff8906; '>></span>
+You are looking lovely!
+<span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>body</span><span style='color:#ff8906; '>></span>
+<span style='color:#ff8906; '>&lt;/</span><span style='color:#e66170; font-weight:bold; '>html</span><span style='color:#ff8906; '>></span>
 </pre>
         <p style="color: #2f2f2f">
-            Nó sẽ khởi tạo project của bạn với tham số mặc định và xuất hiện 1 file package.json trong thư mục project .File đó các bạn chưa cần quan tâm nhé mình sẽ giải thích sau và từ khóa npm cũng vậy mình sẽ giải thích sau. <br>
-            Nói thêm nữa là code nodejs thì ko cần ide vì code của javascript không phực tạp như java hay C#, chỉ sau này khi làm cả một trang web thì chúng ta dùng webstorm, trước mắt thì nên dùng sublime text hoặc atom cho nó ... đẳng cấp @#$@#$ , các bạn có thể dow trên mạng <br>
-            Trong thưc mục project chúng ta tạo file index.js.<br>
-            Trong file index.js chúng ta có đoạn code sau:<br>
+            Các bạn đặt tên file là index.html nhé ( tên gì cũng được nhưng cứ đặt vậy cho tiện) :)) <br>
+            Bây giờ chúng ta bắt đầu tạo server, chúng ta cùng xem đoạn code sau: <br>
         </p>
         <pre style='color:#d1d1d1;background:#000000;'><span style='color:#e66170; font-weight:bold; '>var</span> http <span style='color:#d2cd86; '>=</span> require<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>http</span><span style='color:#02d045; '>'</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-<span style='color:#e66170; font-weight:bold; '>var</span> server <span style='color:#d2cd86; '>=</span> http<span style='color:#d2cd86; '>.</span>createServer<span style='color:#d2cd86; '>(</span><span style='color:#e66170; font-weight:bold; '>function</span> <span style='color:#d2cd86; '>(</span>request<span style='color:#d2cd86; '>,</span> response<span style='color:#d2cd86; '>)</span> <span style='color:#b060b0; '>{</span>
-console<span style='color:#d2cd86; '>.</span><span style='color:#e66170; font-weight:bold; '>log</span><span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>request starting...</span><span style='color:#02d045; '>'</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-<span style='color:#9999a9; '>// respond</span>
-response<span style='color:#d2cd86; '>.</span>write<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>hello client!</span><span style='color:#02d045; '>'</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-response<span style='color:#d2cd86; '>.</span>end<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-<span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-server<span style='color:#d2cd86; '>.</span>listen<span style='color:#d2cd86; '>(</span><span style='color:#008c00; '>3000</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
-console<span style='color:#d2cd86; '>.</span><span style='color:#e66170; font-weight:bold; '>log</span><span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>Server running at http://127.0.0.1:3000/</span><span style='color:#02d045; '>'</span><span style='color:#d2cd86; '>)</span>
+<span style='color:#e66170; font-weight:bold; '>var</span> fs <span style='color:#d2cd86; '>=</span> require<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>fs</span><span style='color:#02d045; '>'</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+<span style='color:#e66170; font-weight:bold; '>var</span> server <span style='color:#d2cd86; '>=</span> http<span style='color:#d2cd86; '>.</span>createServer<span style='color:#d2cd86; '>(</span><span style='color:#e66170; font-weight:bold; '>function</span> <span style='color:#d2cd86; '>(</span>req<span style='color:#d2cd86; '>,</span> res<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>{</span>
+    res<span style='color:#d2cd86; '>.</span>writeHead<span style='color:#d2cd86; '>(</span><span style='color:#008c00; '>200</span><span style='color:#d2cd86; '>,</span> <span style='color:#b060b0; '>{</span> <span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>content-type</span><span style='color:#02d045; '>'</span><span style='color:#b060b0; '>:</span> <span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>text/html</span><span style='color:#02d045; '>'</span> <span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+    fs<span style='color:#d2cd86; '>.</span>createReadStream<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>index.html</span><span style='color:#02d045; '>'</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>.</span>pipe<span style='color:#d2cd86; '>(</span>res<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+<span style='color:#b060b0; '>}</span><span style='color:#d2cd86; '>)</span><span style='color:#d2cd86; '>.</span>listen<span style='color:#d2cd86; '>(</span><span style='color:#008c00; '>3000</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+console<span style='color:#d2cd86; '>.</span><span style='color:#e66170; font-weight:bold; '>log</span><span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>server running on port 3000</span><span style='color:#02d045; '>'</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
 </pre>
         <p style="color: #2f2f2f">
-            Đầu tiên câu lệch require dùng để import thư viện ( cái này mình cũng sẽ giải thích chi tiết ở bài sau). Chúng ta import thư viện http , thư viện này dùng để giúp chúng ta khỏi tạo server với phương thức là http. <br>
-            Trong hàm createServer chúng ta truyền vào 1 hàm callback, hàm này có 2 tham số là request và response. Đương nhiên rồi cái tên nói lên tất cả, request sẽ chứa thông tin của client mỗi khi nó gửi 1 yêu cầu lên server còn response sẽ chứa dữ liệu mà chúng ta sẽ trả về cho yêu cầu đó. <br>
-            Cứ mỗi 1 yêu cầu của client được gửi lên thì hàm callback đó sẽ được gọi 1 lần và đương nhiên là request và response ở mỗi lần là khác nhau ! <br>
-            response.write('hello client!');<br>
-            Đoạn này hiểu đơn giản là chúng ta trả về cho client chuỗi hello client!<br>
-            response.end();<br>
-            Còn đoạn này là thông báo kết thúc gói tin trả về( nếu không có dòng này thì client sẽ không nhận được dữ liệu trả về đâu hô hô !<br>
-            Rồi bắt đầu chạy !
-            Vào cmd cd đến thưc mục project rồi gõ:
+            res.writeHead(200, { 'content-type': 'text/html' });<br>
+            Đoạn code này dùng để set header cho gói tin, thông báo là chúng ta trả về file html.<br>
+            Rồi chúng ta dùng module fs để trả truyền file về cho client.<br>
+            Vào trình duyệt và gõ http://127.0.0.1:3000 nó sẽ hiện thị nội dung của file html nên cho chúng ta.<br>
+            Đấy là cách chúng ta trả về file html còn đây là bảng tên content-type của một vài kiểu dữ liệu cơ bản, các bạn chỉ cần chỉnh phương thức writeHead và truyền vào file muốn trả về là được.<br>
         </p>
-        <pre style='color:#d1d1d1;background:#000000;'><span style='color:#005fd2; '>node</span> <span style='color:#00c4c4; '>index.js</span>
+        <pre style='color:#d1d1d1;background:#000000;'><span style='color:#e66170; font-weight:bold; '>Name</span>                               MIME <span style='color:#e66170; font-weight:bold; '>type</span>
+HyperText Markup Language <span style='color:#d2cd86; '>(</span>HTML<span style='color:#d2cd86; '>)</span>   text<span style='color:#d2cd86; '>/</span>html
+Cascading Style Sheets <span style='color:#d2cd86; '>(</span>CSS<span style='color:#d2cd86; '>)</span>       text<span style='color:#d2cd86; '>/</span>css
+JavaScript                         application<span style='color:#d2cd86; '>/</span>javascript
+JavaScript Object Notation <span style='color:#d2cd86; '>(</span>JSON<span style='color:#d2cd86; '>)</span>  application<span style='color:#d2cd86; '>/</span>json
+JPEG Image                         image<span style='color:#d2cd86; '>/</span>jpeg
+Portable Network <span style='color:#e66170; font-weight:bold; '>Graphics</span> <span style='color:#d2cd86; '>(</span>PNG<span style='color:#d2cd86; '>)</span>    image<span style='color:#d2cd86; '>/</span>png
 </pre>
-        <p style="color: #2f2f2f">
-            Nếu các bạn thấy chữ Server running at http://127.0.0.1:3000/ tức là server đã được start thành công! <br>
-            Giờ vào trình duyệt gõ 127.0.0.1:3000 chúng ta sẽ nhận được chữ hello client! <br>
-            Như vậy là chúng ta đã tạo thành công 1 server http đơn giản , để tắt server thì ở cmd chúng ta bấm ctrl + c ! <br>
-            Các bạn thử xóa dòng response.end(); rồi chạy lại server và vào trình duyệt check lại xem điều gì xảy ra nhé!<br>
-            Ok như vậy là mình vừa hướng dẫn các bạn tạo 1 server http đơn giản trả về chuỗi hello client! mỗi khi có yêu cầu từ client.<br>
-            Cảm ơn các bạn đã theo dõi bài viết !
+        <p style="color:#2f2f2f">
+            Hôm nay mình có chút việc nên chỉ viết đến đây thôi , bài viết sau mình sẽ hướng dẫn các bạn trả về file html mà trong đó có chứa file ảnh , file css ...vvv nhé ! <br>
+            Cảm ơn các bạn đã theo dõi bài viết ! <br>
         </p>
     </div>
 </div>
-
 </body>
 </html>

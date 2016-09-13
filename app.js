@@ -119,9 +119,9 @@ console.log(x);
 var  db = new sqlite3.Database('./databases/dulieu.s3db');
 db.all('SELECT title,content FROM nodejs', function (err, rows) {
 });
-db.all('INSERT INTO nodejs (title,content) VALUES (?,?);', 'Tạo một server http đơn giản !', x);
-*/
+db.all('INSERT INTO nodejs (title,content) VALUES (?,?);', 'Truyền file trong từ server về client trong nodejs(p1)!', x);
 
+*/
 
 
 /*
@@ -129,8 +129,5 @@ var fs = require('fs');
 var x =  fs.readFileSync('demo.txt', 'utf8');
 console.log(x);
 var  db = new sqlite3.Database('./databases/dulieu.s3db');
-db.all('UPDATE nodejs SET content = (?) WHERE _id =(?);',x,3);
+db.all('UPDATE nodejs SET content = (?) WHERE _id =(?);',x,4);
 */
-
-
-
