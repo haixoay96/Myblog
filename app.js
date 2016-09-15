@@ -1,7 +1,11 @@
 var express = require('express');
 var app = express();
 var http = require('http');
-var sqlite3 = require('sqlite3').verbose();
+var MongoClient = require('mongodb').MongoClient;
+var ObjectID = require('mongodb').ObjectID;
+var assert = require('assert');
+var url = 'mongodb://duclinh:namnam@ds021356.mlab.com:21356/datablog';
+
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname));
 http.createServer(app).listen(process.env.PORT || 3000, function () {
@@ -18,17 +22,22 @@ app.get('/book', function (req,res) {
   var param = {};
   param.name = 'Book';
   param.link = '/public/images/book.png';
-  var  db = new sqlite3.Database('./databases/dulieu.s3db');
-  db.all('SELECT title,_id FROM ' +nameTable , function (err, rows) {
-    param.list = rows;
-    res.render('book/index',param);
+  MongoClient.connect(url, function (err, db) {
+    if(err){
+      res.redirect('/');
+      return;
+    }
+    var collection = db.collection(nameTable);
+    collection.find({},{title:1, _id:1}).toArray(function (err, docs) {
+      param.list = docs;
+      res.render('programming/index',param);
+    });
   });
 });
 app.get('/programming/:id', function (req,res) {
   var id = req.params.id;
   var nameTable;
   var param = {};
-
   switch (id){
     case '1':
       nameTable ='java';
@@ -58,10 +67,16 @@ app.get('/programming/:id', function (req,res) {
       res.redirect('/');
       return;
   }
-  var  db = new sqlite3.Database('./databases/dulieu.s3db');
-  db.all('SELECT title,_id FROM ' +nameTable , function (err, rows) {
-    param.list = rows;
-    res.render('programming/index',param);
+  MongoClient.connect(url, function (err, db) {
+    if(err){
+      res.redirect('/');
+      return;
+    }
+    var collection = db.collection(nameTable);
+    collection.find({},{title:1, _id:1}).toArray(function (err, docs) {
+      param.list = docs;
+      res.render('programming/index',param);
+    });
   });
 
 });
@@ -96,38 +111,24 @@ app.get('/programming/:idLanguage/:idPost', function (req,res) {
       res.redirect('/');
       return;
   }
-  var  db = new sqlite3.Database('./databases/dulieu.s3db');
-  db.all('SELECT title,content FROM ' + nameTable+ ' WHERE _id = (?)',idPost , function (err, rows) {
-    if(rows.length === 0 ){
+  MongoClient.connect(url, function (err, db) {
+    if(err){
       res.redirect('/');
       return;
     }
-    param.content = rows[0].content;
-    param.title = rows[0].title;
-    res.render('programming/post',param);
+    var collection = db.collection(nameTable);
+    collection.find({_id:new ObjectID(idPost)}, {title:1, content:1,_id:0}).toArray(function (err, docs) {
+      if(docs.length === 0 ){
+        res.redirect('/');
+        return;
+      }
+      param.content =docs[0].content;
+      param.title = docs[0].title;
+      res.render('programming/post',param);
+    });
   });
+
 });
 app.use(function (req,res) {
   res.redirect('/');
 });
-
-
-/*
-var fs = require('fs');
-var x = fs.readFileSync('demo.txt', 'utf8');
-console.log(x);
-var  db = new sqlite3.Database('./databases/dulieu.s3db');
-db.all('SELECT title,content FROM nodejs', function (err, rows) {
-});
-db.all('INSERT INTO nodejs (title,content) VALUES (?,?);', 'Truyền file trong từ server về client trong nodejs(p1)!', x);
-
-*/
-
-
-/*
-var fs = require('fs');
-var x =  fs.readFileSync('demo.txt', 'utf8');
-console.log(x);
-var  db = new sqlite3.Database('./databases/dulieu.s3db');
-db.all('UPDATE nodejs SET content = (?) WHERE _id =(?);',x,4);
-*/
