@@ -13,6 +13,7 @@ http.createServer(app).listen(process.env.PORT || 3000, function () {
 });
 app.get('/', function (req, res) {
   res.render('index', {
+    main:'Blog Developer !',
     name: 'Developer',
     link:'/public/images/avatar.jpg'
   });
@@ -20,6 +21,7 @@ app.get('/', function (req, res) {
 app.get('/book', function (req,res) {
   var nameTable = 'book';
   var param = {};
+  param.main = "I'm Book !";
   param.name = 'Book';
   param.link = '/public/images/book.png';
   MongoClient.connect(url, function (err, db) {
@@ -41,24 +43,28 @@ app.get('/programming/:id', function (req,res) {
   switch (id){
     case '1':
       nameTable ='java';
+      param.main = "I'm Java !";
       param.name = 'Java';
       param.link = '/public/images/java.png';
       param.language = 1;
       break;
     case '2':
       nameTable = 'android';
+      param.main = "I'm Android !";
       param.name = 'Android';
       param.link = '/public/images/android.jpg';
       param.language = 2;
       break;
     case '3':
       nameTable = 'nodejs';
+      param.main = "I'm Nodejs !";
       param.name = 'NodeJs';
       param.link = '/public/images/nodejs.jpg';
       param.language = 3;
       break;
     case '4':
       nameTable = 'c';
+      param.main = "I'm C/C++ !";
       param.name = 'C/C++';
       param.link = '/public/images/c.jpg';
       param.language = 4;
@@ -122,6 +128,7 @@ app.get('/programming/:idLanguage/:idPost', function (req,res) {
         res.redirect('/');
         return;
       }
+      param.main = docs[0].title;
       param.content =docs[0].content;
       param.title = docs[0].title;
       res.render('programming/post',param);
