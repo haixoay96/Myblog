@@ -7,7 +7,9 @@ var assert = require('assert');
 var url = 'mongodb://duclinh:namnam@ds021356.mlab.com:21356/datablog';
 
 app.set('view engine', 'ejs');
-app.use(express.static(__dirname));
+app.use(express.static('public'));
+app.use(express.static('node_modules/jquery'));
+app.use(express.static('node_modules/bootstrap'));
 http.createServer(app).listen(process.env.PORT || 3000, function () {
   console.log('server running port 3000');
 });
@@ -15,7 +17,7 @@ app.get('/', function (req, res) {
   res.render('index', {
     main:'Blog Developer !',
     name: 'Developer',
-    link:'/public/images/avatar.jpg'
+    link:'/images/avatar.jpg'
   });
 });
 app.get('/book', function (req,res) {
@@ -23,7 +25,7 @@ app.get('/book', function (req,res) {
   var param = {};
   param.main = "I'm Book !";
   param.name = 'Book';
-  param.link = '/public/images/book.png';
+  param.link = '/images/book.png';
   MongoClient.connect(url, function (err, db) {
     if(err){
       res.redirect('/');
@@ -52,28 +54,28 @@ app.get('/programming/:id', function (req,res) {
       nameTable ='java';
       param.main = "I'm Java !";
       param.name = 'Java';
-      param.link = '/public/images/java.png';
+      param.link = '/images/java.png';
       param.language = 1;
       break;
     case '2':
       nameTable = 'android';
       param.main = "I'm Android !";
       param.name = 'Android';
-      param.link = '/public/images/android.jpg';
+      param.link = '/images/android.jpg';
       param.language = 2;
       break;
     case '3':
       nameTable = 'nodejs';
       param.main = "I'm Nodejs !";
       param.name = 'NodeJs';
-      param.link = '/public/images/nodejs.jpg';
+      param.link = '/images/nodejs.jpg';
       param.language = 3;
       break;
     case '4':
       nameTable = 'c';
       param.main = "I'm C/C++ !";
       param.name = 'C/C++';
-      param.link = '/public/images/c.jpg';
+      param.link = '/images/c.jpg';
       param.language = 4;
       break;
     default:
@@ -110,22 +112,22 @@ app.get('/programming/:idLanguage/:idPost', function (req,res) {
     case '1':
       nameTable ='java';
       param.name = 'Java';
-      param.link = '/public/images/java.png';
+      param.link = '/images/java.png';
       break;
     case '2':
       nameTable = 'android';
       param.name = 'Android';
-      param.link = '/public/images/android.jpg';
+      param.link = '/images/android.jpg';
       break;
     case '3':
       nameTable = 'nodejs';
       param.name = 'NodeJs';
-      param.link = '/public/images/nodejs.jpg';
+      param.link = '/images/nodejs.jpg';
       break;
     case '4':
       nameTable = 'c';
       param.name = 'C/C++';
-      param.link = '/public/images/c.jpg';
+      param.link = '/images/c.jpg';
       break;
     default:
       res.redirect('/');
