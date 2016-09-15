@@ -30,10 +30,17 @@ app.get('/book', function (req,res) {
       return;
     }
     var collection = db.collection(nameTable);
-    collection.find({},{title:1, _id:1}).toArray(function (err, docs) {
-      param.list = docs;
-      res.render('programming/index',param);
-    });
+    try {
+      collection.find({},{title:1, _id:1}).toArray(function (err, docs) {
+        param.list = docs;
+        res.render('programming/index',param);
+      });
+    }catch (err){
+      res.redirect('/');
+    }
+    finally {
+      db.close();
+    }
   });
 });
 app.get('/programming/:id', function (req,res) {
@@ -79,10 +86,17 @@ app.get('/programming/:id', function (req,res) {
       return;
     }
     var collection = db.collection(nameTable);
-    collection.find({},{title:1, _id:1}).toArray(function (err, docs) {
-      param.list = docs;
-      res.render('programming/index',param);
-    });
+    try {
+      collection.find({},{title:1, _id:1}).toArray(function (err, docs) {
+        param.list = docs;
+        res.render('programming/index',param);
+      });
+    }catch (err){
+      res.redirect('/');
+    }
+    finally {
+      db.close();
+    }
   });
 
 });
@@ -123,16 +137,24 @@ app.get('/programming/:idLanguage/:idPost', function (req,res) {
       return;
     }
     var collection = db.collection(nameTable);
-    collection.find({_id:new ObjectID(idPost)}, {title:1, content:1,_id:0}).toArray(function (err, docs) {
-      if(docs.length === 0 ){
-        res.redirect('/');
-        return;
-      }
-      param.main = docs[0].title;
-      param.content =docs[0].content;
-      param.title = docs[0].title;
-      res.render('programming/post',param);
-    });
+    try {
+      collection.find({_id:new ObjectID(idPost)}, {title:1, content:1,_id:0}).toArray(function (err, docs) {
+        if(docs.length === 0 ){
+          res.redirect('/');
+          return;
+        }
+        param.main = docs[0].title;
+        param.content =docs[0].content;
+        param.title = docs[0].title;
+        res.render('programming/post',param);
+      });
+    }catch (err){
+      res.redirect('/programming/'+ idLanguage);
+    }
+    finally {
+      db.close();
+    }
+
   });
 
 });
