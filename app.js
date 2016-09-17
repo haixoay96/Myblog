@@ -11,8 +11,9 @@ http.createServer(app).listen(process.env.PORT || 3000, function () {
 });
 
 http.createServer(function (req,res) {
-  console.log('https://'+req.headers.host+':'+(process.env.PORT|| 3000) + req.url);
-  res.writeHead(301, {'Location': 'https://'+req.headers.host+':'+(process.env.PORT || 3000) + req.url});
+  console.log('heay');
+  console.log('https://'+req.headers.host+ req.url);
+  res.writeHead(301, {'Location': 'https://'+req.headers.host+ req.url});
   res.end();
 }).listen(80, function () {
   console.log('running port 80');
