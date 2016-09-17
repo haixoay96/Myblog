@@ -1,7 +1,7 @@
 var router = express.Router();
 router.get('*', function (req,res, next) {
     if(req.headers['x-forwarded-proto']!='https') {
-        res.redirect('https://whoamiblog.herokuapp.com' + req.url);
+        res.redirect('https://'+ req.headers.host + req.url);
     }
     else {
         next();
