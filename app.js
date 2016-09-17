@@ -9,6 +9,3 @@ app.use(require('./router/index'));
 http.createServer(app).listen(process.env.PORT || 3000, function () {
   console.log('server running port 3000');
 });
-
-
-
