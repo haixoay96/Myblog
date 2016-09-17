@@ -1,4 +1,12 @@
 var router = express.Router();
+router.get('*', function (req,res, next) {
+    if(req.headers['x-forwarded-proto']!='https') {
+        res.redirect('https://whoamiblog.herokuapp.com' + req.url);
+    }
+    else {
+        next();
+    }
+});
 router.get('/', function (req, res) {
     res.render('index', {
         main:'Blog Developer !',

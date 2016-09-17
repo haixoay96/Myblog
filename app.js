@@ -9,12 +9,3 @@ app.use(require('./router/index'));
 http.createServer(app).listen(process.env.PORT || 3000, function () {
   console.log('server running port 3000');
 });
-
-http.createServer(function (req,res) {
-  console.log('heay');
-  console.log('https://'+req.headers.host+ req.url);
-  res.writeHead(301, {'Location': 'https://'+req.headers.host+ req.url});
-  res.end();
-}).listen(80, function () {
-  console.log('running port 80');
-});
