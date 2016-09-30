@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sau="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Blog developer !</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css"<link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="shortcut icon" type="image/PNG" href="/public/images/icon.png"/>
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font: 20px Montserrat, sans-serif;
+            line-height: 1.8;
+            color: #f5f6f7;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        .margin {
+            margin-bottom: 45px;
+        }
+
+        .bg-1 {
+            background-color: #1abc9c; /* Green */
+            color: #ffffff;
+        }
+
+        .bg-2 {
+            background-color: #474e5d; /* Dark Blue */
+            color: #ffffff;
+        }
+
+        .bg-3 {
+            background-color: #ffffff; /* White */
+            color: #555555;
+        }
+
+        .bg-4 {
+            background-color: #2f2f2f; /* Black Gray */
+            color: #fff;
+        }
+
+        .container-fluid {
+            padding-top: 70px;
+            padding-bottom: 70px;
+        }
+
+        .navbar {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border: 0;
+            border-radius: 0;
+            margin-bottom: 0;
+            font-size: 12px;
+            letter-spacing: 5px;
+        }
+
+        .navbar-nav li a:hover {
+            color: #1abc9c !important;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Home</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Who?</a></li>
+                <li><a href="#">What?</a></li>
+                <li><a href="#">How?</a></li>
+                <li><a href="#">Book</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Programming<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/programming/1">Java</a></li>
+                        <li><a href="/programming/2">Android</a></li>
+                        <li><a href="/programming/3">Nodejs</a></li>
+                        <li><a href="/programming/4">C/C++</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+</div>
+<div class="container">
+    <div class="jumbotron">
+        <p style="color: #2f2f2f">
+            Chào các bạn hôm nay mình sẽ giải thích cho các bạn về từ khóa require, module.exports và file package.json<br>
+            Đầu tiên tạo 1 project cái đã ( Hôm nay có hứng nên viết lại cách tạo project ) <br>
+            Nào mở cửa sổ cmd lên. <br>
+        </p>
+        <pre style='color:#d1d1d1;background:#000000;'><span style='color:#005fd2; '>mkdir</span> <span style='color:#00c4c4; '>explain</span>
+<span style='color:#005fd2; '>cd</span> <span style='color:#00c4c4; '>explain</span>
+<span style='color:#005fd2; '>npm</span> <span style='color:#00c4c4; '>init</span> <span style='color:#00c4c4; '>--yes</span>
+</pre>
+        <p style="color: #2f2f2f">
+            Như vậy tạo xong project tên là explain, chúng ta mở thư mục explain sẽ thấy file package.json và mở file đó lên sẽ thấy nội dung như sau: <br>
+        </p>
+        <pre style='color:#d1d1d1;background:#000000;'><span style='color:#d2cd86; '>{</span>
+  <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>name</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>explain</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span>
+  <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>version</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>1.0.0</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span>
+  <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>description</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span>
+  <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>main</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>index.js</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span>
+  <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>scripts</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#d2cd86; '>{</span>
+    <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>test</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>echo \</span><span style='color:#02d045; '>"</span>Error<span style='color:#d2cd86; '>:</span> no test specified<span style='color:#d2cd86; '>\</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '> &amp;&amp; exit 1</span><span style='color:#02d045; '>"</span>
+  <span style='color:#d2cd86; '>}</span><span style='color:#d2cd86; '>,</span>
+  <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>keywords</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#d2cd86; '>[</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>,</span>
+  <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>author</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span>
+  <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>license</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>ISC</span><span style='color:#02d045; '>"</span>
+<span style='color:#d2cd86; '>}</span>
+</pre>
+        <p style="color: #2f2f2f">
+            Các bạn hiểu đơn giản file package.json dùng để cấu hình cho project là được, cái này khá quan trọng khi ta deploy project lên host.<br>
+            Bây giờ ở trong cửa sổ cmd lúc này đánh thêm lệnh : <br>
+        </p>
+        <pre style='color:#d1d1d1;background:#000000;'><span style='color:#005fd2; '>npm</span> <span style='color:#00c4c4; '>install</span> <span style='color:#00c4c4; '>express</span> <span style='color:#00c4c4; '>--save</span>
+</pre>
+        <p style="color: #2f2f2f">
+            Lệch này dùng để dow thư viện express về. <br>
+            Mở lại file package.json chúng ta sẽ thấy như sau: <br>
+        </p>
+        <pre style='color:#d1d1d1;background:#000000;'><span style='color:#d2cd86; '>{</span>
+  <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>name</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>explain</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span>
+  <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>version</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>1.0.0</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span>
+  <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>description</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span>
+  <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>main</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>index.js</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span>
+  <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>scripts</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#d2cd86; '>{</span>
+    <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>test</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>echo \</span><span style='color:#02d045; '>"</span>Error<span style='color:#d2cd86; '>:</span> no test specified<span style='color:#d2cd86; '>\</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '> &amp;&amp; exit 1</span><span style='color:#02d045; '>"</span>
+  <span style='color:#d2cd86; '>}</span><span style='color:#d2cd86; '>,</span>
+  <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>keywords</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#d2cd86; '>[</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>,</span>
+  <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>author</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span>
+  <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>license</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>ISC</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span>
+  <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>dependencies</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#d2cd86; '>{</span>
+    <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>express</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>^4.14.0</span><span style='color:#02d045; '>"</span>
+  <span style='color:#d2cd86; '>}</span>
+<span style='color:#d2cd86; '>}</span>
+</pre>
+        <p style="color: #2f2f2f">
+            Các bạn để ý chúng ta có thêm đoạn này:<br>
+        </p>
+        <pre style='color:#d1d1d1;background:#000000;'><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>dependencies</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#d2cd86; '>{</span>
+   <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>express</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>^4.14.0</span><span style='color:#02d045; '>"</span>
+<span style='color:#d2cd86; '>}</span>
+</pre>
+        <p style="color: #2f2f2f">
+            Đoạn này dùng để khai báo những thư viện mà chúng ta dùng trong project, để khi deploy lên host, host sẽ tự nhận dạng và dow thư viện này về <br>
+        </p>
+        <p style="color: #2f2f2f">
+            Bây giờ giả sử chúng ta có 1 file package.json có sẵn như sau : <br>
+        </p>
+        <pre style='color:#d1d1d1;background:#000000;'><span style='color:#d2cd86; '>{</span>
+  <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>name</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>explain</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span>
+  <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>version</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>1.0.0</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span>
+  <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>description</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span>
+  <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>main</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>index.js</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span>
+  <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>scripts</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#d2cd86; '>{</span>
+    <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>test</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>echo \</span><span style='color:#02d045; '>"</span>Error<span style='color:#d2cd86; '>:</span> no test specified<span style='color:#d2cd86; '>\</span><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '> &amp;&amp; exit 1</span><span style='color:#02d045; '>"</span>
+  <span style='color:#d2cd86; '>}</span><span style='color:#d2cd86; '>,</span>
+  <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>keywords</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#d2cd86; '>[</span><span style='color:#d2cd86; '>]</span><span style='color:#d2cd86; '>,</span>
+  <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>author</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span>
+  <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>license</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>ISC</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span>
+  <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>dependencies</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#d2cd86; '>{</span>
+    <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>body-parser</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>^1.15.2</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span>
+    <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>ejs</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>^2.5.2</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span>
+    <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>express</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>^4.14.0</span><span style='color:#02d045; '>"</span>
+  <span style='color:#d2cd86; '>}</span>
+<span style='color:#d2cd86; '>}</span>
+</pre>
+        <p style="color: #2f2f2f">
+            Thì chúng ta chỉ cần đánh lệch: <br>
+        </p>
+        <pre style='color:#d1d1d1;background:#000000;'><span style='color:#005fd2; '>npm</span> <span style='color:#00c4c4; '>install</span>
+</pre>
+        <p style="color: #2f2f2f">
+            Là hệ thống sẽ tự động dow các thư viện mà được khái báo trong : <br>
+        </p>
+        <pre style='color:#d1d1d1;background:#000000;'><span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>dependencies</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#d2cd86; '>{</span>
+    <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>body-parser</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>^1.15.2</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span>
+    <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>ejs</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>^2.5.2</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>,</span>
+    <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>express</span><span style='color:#02d045; '>"</span><span style='color:#d2cd86; '>:</span> <span style='color:#02d045; '>"</span><span style='color:#00c4c4; '>^4.14.0</span><span style='color:#02d045; '>"</span>
+  <span style='color:#d2cd86; '>}</span>
+</pre>
+        <p style="color: #2f2f2f">
+            Đấy có là những chức năng cơ bản của file package.json cũng khá đủ dùng rồi. Nếu bạn nào muốn tìm hiểu sâu hơn thì có thể tìm hiểu ở trang <a href="//docs.npmjs.com/files/package.json">này</a>. Đây là trang chủ npm, nơi mà chúng ta dow các thư viện về. <br> <br>
+        </p>
+        <p style="color: #2f2f2f">
+            Như vậy là tạm ổn về file package.json, giờ mình sẽ giải thích về từ khóa require. <br>
+            require các bạn có thể hiểu như câu lệch dùng để import thư viện mà được viết ở những file js khác , nó giúp chúng ta có thể chia code ra thành nhiểu file. Giả sử về sau chúng ta làm 1 trang web lớn có rất nhiều dòng code, chúng ta không thể tống tất cả code vào trong 1 file duy nhất được như vậy nhìn rất rối trong việc đọc code và chỉnh sửa, tóm lại là nó ko dynamic. <br>
+            Thôi chúng ta cứ vào 1 ví dụ củ thể cho dễ: <br>
+            Chúng ta tạo 1 project ( cách tạo mình hướng dẫn rồi ) và trong thư mục project chúng ta có 2 file là index.js và printf.js .<br>
+        </p>
+        <pre style='color:#d1d1d1;background:#000000;'><span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>-</span>tenproject
+       <span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>-</span> index<span style='color:#00a800; '>.</span>js
+       <span style='color:#d2cd86; '>-</span><span style='color:#d2cd86; '>-</span> printf<span style='color:#00a800; '>.</span>js
+</pre>
+        <p style="color: #2f2f2f">
+            Trong file printf.js có nội dung như sau. <br>
+        </p>
+        <pre style='color:#d1d1d1;background:#000000;'><span style='color:#e66170; font-weight:bold; '>var</span> x <span style='color:#d2cd86; '>=</span> <span style='color:#e66170; font-weight:bold; '>function</span> <span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span> <span style='color:#b060b0; '>{</span>
+	console<span style='color:#d2cd86; '>.</span><span style='color:#e66170; font-weight:bold; '>log</span><span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>Chúc các bạn đọc tust vui vẻ !</span><span style='color:#02d045; '>'</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+<span style='color:#b060b0; '>}</span><span style='color:#b060b0; '>;</span>
+
+module<span style='color:#d2cd86; '>.</span>exports <span style='color:#d2cd86; '>=</span> x<span style='color:#b060b0; '>;</span>
+</pre>
+        <p style="color: #2f2f2f">
+            module.exports = x;// dùng để export dữ liệu cho file khác dùng.<br>
+            Trong file index.js có nội dung như sau:<br>
+        </p>
+        <pre style='color:#d1d1d1;background:#000000;'><span style='color:#e66170; font-weight:bold; '>var</span> printf <span style='color:#d2cd86; '>=</span> require<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>./printf.js</span><span style='color:#02d045; '>'</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+printf<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+</pre>
+        <p style="color: #2f2f2f">
+            Nào vào cmd trỏ đến thư mục project gõ: <br>
+        </p>
+        <pre style='color:#d1d1d1;background:#000000;'><span style='color:#005fd2; '>node</span> <span style='color:#00c4c4; '>index.js</span>
+</pre>
+        <p style="color: #2f2f2f">
+            Chúng ta nhận được dòng text "Chúc các bạn đọc tust vui vẻ !". <br>
+            Mình giải thích qua trong file index.js <br>
+            Câu lêch require('./printf.js') sẽ import đối tương x mà chúng ta export trong file printf.js, có thể hiểu là câu lệch require('./printf.js') trả về đối tượng x và gán nó vào biến printf. <br>
+            Và chúng ta sẻ dụng như bình thường. <br>
+            Có vẻ cũng đơn giản nhỉ ? Nhưng có 1 chý ý rất quan trọng là nếu trong ta gọi câu lệch require('./printf.js') lần thứ 2 thì nó sẽ vẫn trả về đối tượng x từ lúc gọi lần 1 . Tức là sau khi gọi lần 1 thì đối tượng x đã được cache và nếu chúng ta gọi từ lần 2 lần 3 .. trở đi thì nó sẽ ko chạy file printf.js nữa mà nó trả về luôn dữ liệu đã cache. <br>
+            Để minh chứng thì trong file index.js chúng ta sửa thành thế này : <br>
+        </p>
+        <pre style='color:#d1d1d1;background:#000000;'><span style='color:#e66170; font-weight:bold; '>var</span> printf <span style='color:#d2cd86; '>=</span> require<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>./printf.js</span><span style='color:#02d045; '>'</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+printf<span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+<span style='color:#e66170; font-weight:bold; '>var</span> printf2 <span style='color:#d2cd86; '>=</span> require<span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>./printf.js</span><span style='color:#02d045; '>'</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+
+console<span style='color:#d2cd86; '>.</span><span style='color:#e66170; font-weight:bold; '>log</span><span style='color:#d2cd86; '>(</span>printf<span style='color:#d2cd86; '>===</span>printf2<span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+</pre>
+        <p style="color: #2f2f2f">
+            Chạy lại project chúng ta thấy sẽ in thêm từ "true" . Điều này chứng tỏ printf và printf2 cùng trỏ đến 1 đối tượng, tức đối tượng trả về require('./printf.js') lần thứ nhất đã được cache và trả về cho những lần sau đó. <br>
+            Các bạn thử sửa file printf.js như này rồi thử chạy xem ngẫm ra thêm được gì nhé, mình ko chạy thử đâu . <br>
+        </p>
+        <pre style='color:#d1d1d1;background:#000000;'><span style='color:#e66170; font-weight:bold; '>var</span> x <span style='color:#d2cd86; '>=</span> <span style='color:#e66170; font-weight:bold; '>function</span> <span style='color:#d2cd86; '>(</span><span style='color:#d2cd86; '>)</span> <span style='color:#b060b0; '>{</span>
+	console<span style='color:#d2cd86; '>.</span><span style='color:#e66170; font-weight:bold; '>log</span><span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>Chúc các bạn đọc tust vui vẻ !</span><span style='color:#02d045; '>'</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+<span style='color:#b060b0; '>}</span><span style='color:#b060b0; '>;</span>
+console<span style='color:#d2cd86; '>.</span><span style='color:#e66170; font-weight:bold; '>log</span><span style='color:#d2cd86; '>(</span><span style='color:#02d045; '>'</span><span style='color:#00c4c4; '>Nó chỉ được chạy 1 lần thôi</span><span style='color:#02d045; '>'</span><span style='color:#d2cd86; '>)</span><span style='color:#b060b0; '>;</span>
+module<span style='color:#d2cd86; '>.</span>exports <span style='color:#d2cd86; '>=</span> x<span style='color:#b060b0; '>;</span>
+</pre>
+        <p style="color: #2f2f2f">
+            Thử chạy đi nhé :P <br>
+            Cảm ơn các bạn đã đọc bài viết ! Nếu thấy bổ ích thì sahre cho bạn bè cũng đọc nha!!!!! <br>
+            Like page để cập nhật bài viết nhanh nhất!
+        </p>
+    </div>
+</div>
+
+</div>
+</body>
+</html>
